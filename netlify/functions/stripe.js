@@ -3,6 +3,7 @@ const stripe = require("stripe")(process.env.STRIPE_SECRET);
 console.log("Got to stripe JS");
 
 exports.handler = async (event, context) => {
+  console.log(event, context)
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ["card"],
     line_items: [
